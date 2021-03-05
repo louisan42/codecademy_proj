@@ -1,4 +1,4 @@
 
 # Codecandemy project
 
-Javascript Portfolio project
+Javascript Portfolio project.
