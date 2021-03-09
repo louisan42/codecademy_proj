@@ -1,8 +1,10 @@
 // Random vacation lottery
 // Author: Louis Amoah-Nuamah
 
-const randomChoice = (n) => {
-    return Math.floor(Math.random() * n + 2)
+
+
+const randomChoice = (n, addMe) => {
+    return Math.floor(Math.random() * n)
 };
 // uncomment code below to test random pick
 //console.log(randomChoice());
@@ -12,7 +14,7 @@ let destinationArr = [{continent:'Africa',cities:['Accra','Cairo','Johannesburg'
 {continent:'Asia',cities:['Bali','Tokyo','Shanghai']}, {continent:'Oceania',cities:['Sydney','Queenstown','Vanua Levu']}];
 
 const outputs = {
-    travelPackagee: ['couple\'s', 'Group of 4', 'Single nightlife' ],
+    travelPackagee: ['couple\'s', 'Group of 4', 'Single\'s nightlife' ],
     destination: [],
     set destinations(destinationArr) {
         this.destination = destinationArr;
@@ -23,60 +25,80 @@ const outputs = {
 
 let finalOutput = [];
 outputs.destinations = destinationArr;
-const flocationValue = (objArr) => {
-  let spinNumber = randomChoice(objArr.length);
+// set posibily of not winning by expanding number of choice greater than the lenght of array
+// makes function resuable to access city array within destination objects
+const flocationValue = (objArr, extraLength) => {
+  let spinNumber = randomChoice(objArr.length + extraLength);
   return objArr[spinNumber];
   
 };
 let desObj = outputs.destination;
-let continentObj = flocationValue(desObj);
+let continentObj = flocationValue(desObj, 4);
+let continent = "";
+let cityObj = "";
 
-let city = "";
+if(continentObj === undefined ){
+    continent = 'error';
+    finalOutput.push('Oops!')
+
+}else{
+    continent = continentObj.continent;
+    cityObj = continentObj.cities;
+    finalOutput.push('congratulations!!!')
+
+}
 let continentIndex = outputs.destination.indexOf(continentObj);
-let cityObj = continentObj.cities
 
-switch(continentObj.continent != undefined && continentObj.continent){
+switch(continent){
     case 'Africa':
         {
-            city = flocationValue(cityObj)
+            
+            
+            let city = flocationValue(cityObj, 0);
+            console.log(continentObj.continent)
             console.log(city);
             break;
         }
     case 'Europe':
         {
-            city = flocationValue(cityObj)
+            
+            let city = flocationValue(cityObj,0);
             console.log(continentObj.continent)
             console.log(city);
             break;
         }
     case 'North America':
         {
-            city = flocationValue(cityObj)
+            
+            let city = flocationValue(cityObj,0);
             console.log(continentObj.continent)
             console.log(city);
             break;
         }
     case 'South America':
         {
-            city = flocationValue(cityObj)
+            
+            let city = flocationValue(cityObj,0);
             console.log(continentObj.continent)
             console.log(city);
             break;
         }
     case 'Asia':
         {
-            city = flocationValue(cityObj)
+            
+            let city = flocationValue(cityObj,0);
             console.log(continentObj.continent)
             console.log(city);
             break;
         }
     case 'Oceania':
         {
-            city = flocationValue(cityObj)
+            
+            let city = flocationValue(cityObj,0);
             console.log(continentObj.continent)
             console.log(city);
             break;
         }
     default : 
-       console.log('Sorry try again later!');
+       console.log('Better luck next time!');
 }
