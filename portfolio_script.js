@@ -7,14 +7,14 @@ const randomChoice = (n) => {
 // uncomment code below to test random pick
 //console.log(randomChoice());
 
-let destinationArr = [{continent:'Africa',cities:['Accra','Cairo','Johannesburg']}, {continent:'Africa',cities:['London','Berlin','Athens']}, 
-{continent:'Africa',cities:['Miami','Vancouver','Cancun']}, {continent:'Africa',cities:['Quito','Bogota','Rio de Janeiro']}, 
-{continent:'Africa',cities:['Bali','Tokyo','Shanghai']}, {continent:'Africa',cities:['Sydney','Queenstown','Vanua Levu']}];
+let destinationArr = [{continent:'Africa',cities:['Accra','Cairo','Johannesburg']}, {continent:'Europe',cities:['London','Berlin','Athens']}, 
+{continent:'North America',cities:['Miami','Vancouver','Cancun']}, {continent:'South America',cities:['Quito','Bogota','Rio de Janeiro']}, 
+{continent:'Asia',cities:['Bali','Tokyo','Shanghai']}, {continent:'Oceania',cities:['Sydney','Queenstown','Vanua Levu']}];
 
 const outputs = {
-    continent : ['Africa','Europe','North America','South America','Asia','Oceania'],
+    travelPackagee: ['couple\'s', 'Group of 4', 'Single nightlife' ],
     destination: [],
-    set destinations(destinationArr){
+    set destinations(destinationArr) {
         this.destination = destinationArr;
     },
     lengthOfStay : ['2 weeks', '3 weeks', '4 weeks']
@@ -22,13 +22,22 @@ const outputs = {
 }
 
 let finalOutput = [];
-outputs.destinations(destinationArr);
-let spinNumber = randomChoice(outputs.continent.length());
-let continent = outputs.continent[spinNumber];
-
-switch(continent){
+outputs.destinations = destinationArr;
+const flocationValue = (objArr) => {
+  let spinNumber = randomChoice(objArr.length);
+  return objArr[spinNumber];
+  
+};
+let obj = outputs.destination;
+let continentName = flocationValue(obj);
+console.log(continentName.cities)
+let city = "";
+switch(continentName.continent){
     case 'Africa':
         {
+            city = randomChoice(outputs.destination.indexOf(continentName))
+            console.log(city);
+            break;
 
         }
 }
