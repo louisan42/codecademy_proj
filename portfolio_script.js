@@ -29,13 +29,13 @@ const flocationValue = (objArr) => {
   
 };
 let obj = outputs.destination;
-let continentName = flocationValue(obj);
-console.log(continentName.cities)
+let continentObj = flocationValue(obj);
+console.log(continentObj.cities)
 let city = "";
-switch(continentName.continent){
+switch(continentObj.continent){
     case 'Africa':
         {
-            city = randomChoice(outputs.destination.indexOf(continentName))
+            city = randomChoice(outputs.destination.indexOf(continentObj))
             console.log(city);
             break;
 
