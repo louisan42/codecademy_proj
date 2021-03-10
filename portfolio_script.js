@@ -32,10 +32,12 @@ const flocationValue = (objArr, extraLength) => {
   return objArr[spinNumber];
   
 };
+
 let desObj = outputs.destination;
 let continentObj = flocationValue(desObj, 4);
 let continent = "";
 let cityObj = "";
+let city = "";
 
 if(continentObj === undefined ){
     continent = 'error';
@@ -45,60 +47,48 @@ if(continentObj === undefined ){
     continent = continentObj.continent;
     cityObj = continentObj.cities;
     finalOutput.push('congratulations!!!')
+};
 
-}
 let continentIndex = outputs.destination.indexOf(continentObj);
 
 switch(continent){
     case 'Africa':
         {
-            
-            
-            let city = flocationValue(cityObj, 0);
-            console.log(continentObj.continent)
-            console.log(city);
+                        
+            city = flocationValue(cityObj, 0);
             break;
         }
     case 'Europe':
         {
             
-            let city = flocationValue(cityObj,0);
-            console.log(continentObj.continent)
-            console.log(city);
+            city = flocationValue(cityObj,0);
             break;
         }
     case 'North America':
         {
             
-            let city = flocationValue(cityObj,0);
-            console.log(continentObj.continent)
-            console.log(city);
+            city = flocationValue(cityObj,0);
             break;
         }
     case 'South America':
         {
             
-            let city = flocationValue(cityObj,0);
-            console.log(continentObj.continent)
-            console.log(city);
+            city = flocationValue(cityObj,0);
             break;
         }
     case 'Asia':
         {
             
-            let city = flocationValue(cityObj,0);
-            console.log(continentObj.continent)
-            console.log(city);
+            city = flocationValue(cityObj,0);
             break;
         }
     case 'Oceania':
         {
             
-            let city = flocationValue(cityObj,0);
-            console.log(continentObj.continent)
-            console.log(city);
+            city = flocationValue(cityObj,0);
             break;
         }
     default : 
        console.log('Better luck next time!');
-}
+};
+finalOutput.push(`You have won a a trip to ${city} in ${continent}. `)
